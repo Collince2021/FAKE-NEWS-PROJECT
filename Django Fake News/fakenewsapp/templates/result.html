@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection - Result</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="headline">Prediction Result</h2>
+        
+        <div class="result-container">
+            <p class="result-text">
+                {% if result %}
+                    The news is <strong class="{{ result }}">{{ result }}</strong>.
+                {% else %}
+                    There was an error processing the prediction. Please try again.
+                {% endif %}
+            </p>
+            
+            <div class="result-details">
+                <p><i class="fas fa-info-circle"></i> This prediction is based on advanced machine learning analysis.</p>
+                <p><i class="fas fa-lightbulb"></i> Always verify with multiple sources for important news.</p>
+            </div>
+            
+            <a href="{% url 'predictor' %}" class="back-link">
+                <i class="fas fa-arrow-left"></i> Check Another News Article
+            </a>
+        </div>
+    </div>
+    
+    <!-- Font Awesome for icons (optional) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
